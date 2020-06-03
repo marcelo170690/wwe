@@ -3,3 +3,6 @@
     border: 0.2em solid white;
     border-radius: 1.5em;
 }
+.container{
+    align-items: center;
+}
