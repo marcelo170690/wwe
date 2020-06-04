@@ -1,3 +1,11 @@
 .wwe{
     background: #1E2323;
+    border-radius: 1em;
+}
+.ca{
+    display: flex;
+    align-items: center;
+}
+.cb{
+    margin: 0 auto
 }

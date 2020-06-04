@@ -2,41 +2,66 @@ const wwe = document.getElementById('wwe');
 const logo = wwe.getContext('2d');
 const redLine = wwe.getContext('2d');
 
-const h = window.innerWidth;
-const c = h/2;
+const c = 500;
 
-redLine.fillStyle = '#ff0000';
-redLine.beginPath();
+document.addEventListener('keyup', selectKey)
 
-redLine.moveTo(c-250, 450);
-redLine.lineTo(c+250, 400);
-redLine.lineTo(c+245, 375);
 
-redLine.fill();
-redLine.closePath();
+function redLineDraw(){
+  redLine.fillStyle = '#ff0000';
+  redLine.beginPath();
 
-logo.fillStyle = '#fff';
-logo.beginPath();
+  redLine.moveTo(c-250, 400);
+  redLine.lineTo(c+250, 350);
+  redLine.lineTo(c+245, 325);
 
-logo.moveTo(c-200, 150);
-logo.lineTo(c-80, 350);
-logo.lineTo(c, 200);
-logo.lineTo(c+80, 350);
-logo.lineTo(c+200, 150);
+  redLine.fill();
+  redLine.closePath();
+}
 
-logo.lineTo(c+80, 300);
-logo.lineTo(c, 150);
-logo.lineTo(c-80, 300);
+function logoDraw(){
+  logo.fillStyle = '#fff';
+  logo.beginPath();
 
-logo.moveTo(c-250, 150);
-logo.lineTo(c-80, 400);
-logo.lineTo(c, 250);
-logo.lineTo(c+80, 400);
-logo.lineTo(c+250, 150);
+  logo.moveTo(c-200, 100);
+  logo.lineTo(c-80, 300);
+  logo.lineTo(c, 150);
+  logo.lineTo(c+80, 300);
+  logo.lineTo(c+200, 100);
 
-logo.lineTo(c+80, 450);
-logo.lineTo(c, 300);
-logo.lineTo(c-80, 450);
+  logo.lineTo(c+80, 250);
+  logo.lineTo(c, 100);
+  logo.lineTo(c-80, 250);
 
-logo.fill();
-logo.closePath();
+  logo.moveTo(c-250, 100);
+  logo.lineTo(c-80, 350);
+  logo.lineTo(c, 200);
+  logo.lineTo(c+80, 350);
+  logo.lineTo(c+250, 100);
+
+  logo.lineTo(c+80, 400);
+  logo.lineTo(c, 250);
+  logo.lineTo(c-80, 400);
+
+  logo.fill();
+  logo.closePath();
+}
+
+function clearLogo(x){
+  x.clearRect(0,0,1000,1000);
+}
+
+function selectKey(evento){
+  switch (evento.keyCode) {
+    case 87:
+      redLineDraw();
+      break;
+    case 69:
+      logoDraw();
+      break;
+    case 67:
+      clearLogo(logo);
+      clearLogo(redLine);
+      break;
+  };
+}
